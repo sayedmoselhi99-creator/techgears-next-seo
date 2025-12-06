@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "techgears-indexing-automation",
+  "private_key_id": "55bd1920c9b5f5f1f48391441b0c114dcf1acf83",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC0NX1td/WM1eP5\nF+13m29cCKbc1LOhN7md/HY74pDia3QBRDf3NNw4EXaPb8d8+d3/23+XULiAuAnR\nA2moCpJhq8wpdDv6XakRnl2+9znFqXFlQ4p5yMJSiqoSV4AECzR4lG2n9dbeo2oP\n/kuP/GYw7bFxbQhGgBz8koF19mzvsw9UQsFKlufeD+wTe8iPqwj7udnLzEmGBEn2\nAMslbCvm+98YQrVGvi4HFd7B30QI+MYqDrqxx5eiAMzjMUyhmtmp67iXwqV+iZ8v\nqLWIVYUF8fCP3WrCj8+XkM6VzvQMThCt3s2mx1VT+zqnUNO5UAQjVs4mt0SPBjGS\nEeqSz4atAgMBAAECggEAO5aGW3iznrapM9goIwkoGPgZaOMCZLg+7dEprWKdAumC\nCdsrYFg/y2Bm4kYVYitjL3O+rGO6JoH0aQMmYDTis14x27E+Fer7eUJzAC7SkRwW\nzWO4ec2bB90nIHqDb5Le7lIyMjw1qRfC/ffZt4o/pkUqi/WAK4O4UgIFweJSoi12\nM67F3Cbjv8u1LOkK358xH53hiT3o2a8kyin/FOIA83kwU3HkRmEg842uHBR2Xpo5\ntQl9M69gI34hsBC9xNOFGLjVVaew5DJYmGAcD1lfv9tmQVR80cnRkEi8BO16Z693\nO/Cp+p8iNMDoeQCYfIxNWchZf1rD7EjhyR175HMlRwKBgQDqzAZLPkEGeZvpwhVI\nokZxsA5aCoQ2tVx0zzJoHH90Vub7yGyT3xlWpNkzm9qDoMcKA4MAY/91g5yBgO56\nBw8sqBnqcAhAlYuVLfBvyUG0VQBeR+eLbWK0cBVeoEyCVuw5Ju21Dan8mQ3VgMGR\nSo3qsL2s8r40WfmbWD8i8tjYlwKBgQDEe4N4Z+Q2zmUyDdlyFIeUPn38jJhKY7yx\n+U9QcrSwRLSJAOjE7t8wb6S94yF+clvGWqnrcfD8WOZbUVDRRh5VNrhmb0HeVZtb\n8/LxpeXs3/6F+xIcPSJvO/B0zPFWaXcwgYbOkpelUS3knfw8vitvEEGK6XCRuMCC\nJK+qKEnfWwKBgQCmdD+eBiNZMMtsm/A0zv47yMFT6hKzKj3CfcVRc6qT0qvsIbl/\n13ECMNnesYXnPQr+OWEc3MeVCtngIYRvNCP416+PuR7QknQjLS9AQKB49K3PKRCo\nksKgArnTnLbAzFipZ8SrT2WMMwFQs/gGRaF4mRXOz0QynvrKu3P/FcTPPwKBgQCB\n4Yvkufh36jOmxNTqvntpGW461c2NzyRbGYy+hzS+GIymy/0SwTy0Tfi+tTfc2Eem\ndSRByU4d4b5UuwoLbKh8d/GpdP47tKdAP6Bm8N1umhssAe3U0OzETwEClL8r+geZ\n/uVYBDtOQr1tlKm6lZMslbhd1TZefZxz60Bb4MoEZQKBgQCnCXV9h/ZyxtLrse5e\n2aySZmbw0VrtkJcdG1X6IIY37z04i2nnGuWPP7YiNoVvydCCYwY7wQCDjFKbKWUl\ng5oEpfXh4KktAIJCYAPtqUHZmmuQSvtVimH7PN2KcrSm7Mwgd7qgb+iEtLzvxX+0\nyEymJtwGrkaJcp5bKZOCN8MRpw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "indexing-service-account@techgears-indexing-automation.iam.gserviceaccount.com",
+  "client_id": "117264986347724798551",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/indexing-service-account%40techgears-indexing-automation.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

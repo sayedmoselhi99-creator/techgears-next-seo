@@ -1,0 +1,16 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/auth/callback/route": "/api/auth/callback",
+  "/manifest.webmanifest/route": "/manifest.webmanifest",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/login/page": "/login",
+  "/post/[slug]/page": "/post/[slug]",
+  "/affiliate-disclosure/page": "/affiliate-disclosure",
+  "/about/page": "/about",
+  "/disclaimer/page": "/disclaimer",
+  "/page": "/",
+  "/terms-conditions/page": "/terms-conditions",
+  "/privacy-policy/page": "/privacy-policy",
+  "/admin/page": "/admin",
+  "/contact/page": "/contact"
+}

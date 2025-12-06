@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://techgearsfinds4you.vercel.app/sitemap.xml
+Sitemap: https://techgearsfinds4you.vercel.app/sitemap-posts.xml
