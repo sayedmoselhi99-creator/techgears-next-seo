@@ -1,16 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/api/auth/callback/route": "app/api/auth/callback/route.js",
-  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
-  "/login/page": "app/login/page.js",
-  "/post/[slug]/page": "app/post/[slug]/page.js",
-  "/affiliate-disclosure/page": "app/affiliate-disclosure/page.js",
-  "/about/page": "app/about/page.js",
-  "/disclaimer/page": "app/disclaimer/page.js",
-  "/page": "app/page.js",
-  "/terms-conditions/page": "app/terms-conditions/page.js",
-  "/privacy-policy/page": "app/privacy-policy/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/page": "app/page.js"
 }
