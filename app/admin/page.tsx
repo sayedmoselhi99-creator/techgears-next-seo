@@ -157,6 +157,12 @@ export default function AdminPanel() {
         const { error } = await supabase.from("posts").insert([payload])
         if (error) throw error
         setStatus("Post created.")
+        await fetch('/api/indexnow', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ url: "https://techgearsfinds4you.vercel.app/my-new-post" })
+});
+
       }
 
       resetForm()
