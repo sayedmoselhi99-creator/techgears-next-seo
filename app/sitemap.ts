@@ -19,21 +19,62 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return []
   }
 
+  // helper to return YYYY-MM-DD
+  const formatDate = (date: string | Date) =>
+    new Date(date).toISOString().split("T")[0]
+
   const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${baseUrl}/post/${post.slug}`,
-    lastModified: post.created_at ?? new Date(),
+    lastModified: post.created_at
+      ? formatDate(post.created_at)
+      : formatDate(new Date()),
     changeFrequency: "weekly",
     priority: 0.7,
   }))
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/privacy-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
-    { url: `${baseUrl}/terms-conditions`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
-    { url: `${baseUrl}/disclaimer`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
-    { url: `${baseUrl}/affiliate-disclosure`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
+    {
+      url: `${baseUrl}/`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "daily",
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms-conditions`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/disclaimer`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/affiliate-disclosure`,
+      lastModified: formatDate(new Date()),
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
   ]
 
   return [...staticPages, ...blogPages]

@@ -1,17 +1,5 @@
 {
-  "/api/auth/callback/route": "app/api/auth/callback/route.js",
-  "/api/auth/indexnow/route": "app/api/auth/indexnow/route.js",
-  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/login/page": "app/login/page.js",
-  "/post/[slug]/page": "app/post/[slug]/page.js",
-  "/affiliate-disclosure/page": "app/affiliate-disclosure/page.js",
-  "/about/page": "app/about/page.js",
-  "/disclaimer/page": "app/disclaimer/page.js",
-  "/page": "app/page.js",
-  "/privacy-policy/page": "app/privacy-policy/page.js",
-  "/terms-conditions/page": "app/terms-conditions/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/contact/page": "app/contact/page.js"
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/page": "app/page.js"
 }
