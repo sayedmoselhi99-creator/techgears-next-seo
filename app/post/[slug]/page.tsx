@@ -1,74 +1,65 @@
-"use client"
-
-import { use, useEffect, useState } from "react"
-import Link from "next/link"
-import { createBrowserClient } from "@supabase/ssr"
-import SchemaMarkup from "@/components/SchemaMarkup"
-import { generateBlogPostSchema } from "@/lib/schema-generator"
+import type { Metadata } from "next"
+import { createServerClient } from "@supabase/ssr"
+import PostClient from "./PostClient"
 import { generateCanonicalUrl } from "@/lib/seo-config"
 
-export default function PostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params)
-
-  const [post, setPost] = useState<any>(null)
-
-  useEffect(() => {
-    async function loadPost() {
-      const supabase = createBrowserClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      )
-
-      const { data, error } = await supabase.from("posts").select("*").eq("slug", slug).single()
-
-      if (error) {
-        console.error("Supabase error:", error)
-        return
-      }
-
-      setPost(data)
+export async function generateMetadata(
+  { params }: { params: { slug: string } }
+): Promise<Metadata> {
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    {
+      cookies: {
+        getAll: () => [],
+        setAll: () => {},
+      },
     }
+  )
 
-    loadPost()
-  }, [slug])
+  const { data: post } = await supabase
+    .from("posts")
+    .select("title, description, content_html, image_url, created_at, updated_at")
+    .eq("slug", params.slug)
+    .single()
 
-  if (!post) return <p className="text-center p-8">Loading...</p>
+  if (!post) {
+    return {}
+  }
 
   const cleanText = post.content_html?.replace(/<[^>]+>/g, "") || ""
-  const description = post.description || cleanText.slice(0, 160) + (cleanText.length > 160 ? "..." : "")
-  const canonicalUrl = generateCanonicalUrl(`/post/${slug}`)
+  const description =
+    post.description ||
+    cleanText.slice(0, 160) + (cleanText.length > 160 ? "..." : "")
 
-  const blogSchema = generateBlogPostSchema({
+  const canonicalUrl = generateCanonicalUrl(`/post/${params.slug}`)
+
+  return {
     title: post.title,
-    description: description,
-    image: post.image_url,
-    datePublished: post.created_at,
-    dateModified: post.updated_at,
-    author: "Tech Gears Finds4You",
-    url: canonicalUrl,
-  })
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: "article",
+      url: canonicalUrl,
+      title: post.title,
+      description,
+      images: post.image_url ? [post.image_url] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description,
+      images: post.image_url ? [post.image_url] : [],
+    },
+  }
+}
 
-  return (
-    <>
-      <SchemaMarkup schema={blogSchema} />
-      <article className="max-w-4xl mx-auto px-6 py-10 bg-white dark:bg-gray-900 rounded-lg shadow-sm">
-        {post.image_url && (
-          <img
-            src={post.image_url || "/placeholder.svg"}
-            alt={post.title}
-            className="w-auto h-auto rounded mb-6 mx-auto"
-            loading="lazy"
-          />
-        )}
-
-        <h1 className="text-3xl font-bold mb-4 dark:text-white">{post.title}</h1>
-
-        <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: post.content_html }} />
-
-        <Link href="/" className="inline-block mt-8 text-blue-600 hover:underline dark:text-blue-400">
-          ← Back to Home
-        </Link>
-      </article>
-    </>
-  )
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  return <PostClient slug={params.slug} />
 }

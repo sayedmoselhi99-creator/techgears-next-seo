@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     "best tech deals",
     "Amazon gadgets",
   ],
+   // ✅ CANONICAL (VERY IMPORTANT)
+  alternates: {
+    canonical:"https://techgearsfinds4you.vercel.app",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

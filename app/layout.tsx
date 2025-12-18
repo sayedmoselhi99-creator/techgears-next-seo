@@ -94,7 +94,6 @@ export default function RootLayout({
           <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION} />
         )}
 
-        <link rel="canonical" href="https://techgearsfinds4you.vercel.app" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
