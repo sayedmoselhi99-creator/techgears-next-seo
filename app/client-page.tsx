@@ -2,21 +2,29 @@
 
 import { useEffect, useState } from "react"
 import PostCard from "@/components/PostCard"
-import { createBrowserClient } from "@supabase/ssr"
+import { createClient, SupabaseClient } from "@supabase/supabase-js"
+
+type Post = {
+  slug: string
+  title: string
+  image_url: string | null
+  created_at: string
+}
 
 export default function ClientPage() {
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     async function loadPosts() {
       try {
-        const supabase = createBrowserClient(
+        const supabase: SupabaseClient = createClient(
           process.env.NEXT_PUBLIC_SUPABASE_URL!,
-          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+          process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
         )
 
+        // Fetch posts
         const { data, error } = await supabase
           .from("posts")
           .select("slug, title, image_url, created_at")
@@ -24,8 +32,9 @@ export default function ClientPage() {
 
         if (error) throw error
 
-        setPosts(data || [])
-      } catch (err) {
+        // Cast data to Post[]
+        setPosts((data || []) as Post[])
+      } catch (err: any) {
         console.error("Supabase error:", err)
         setError("Failed to load posts. Please try again later.")
       } finally {
