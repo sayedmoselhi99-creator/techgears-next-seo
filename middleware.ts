@@ -1,10 +1,21 @@
-// middleware.ts
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
+
+  // ⛔ Skip middleware for public/static files
+  const publicPaths = [
+    "/manifest.webmanifest",
+    "/favicon.ico",
+    "/robots.txt",
+    "/sitemap.xml",
+  ];
+
+  if (publicPaths.includes(req.nextUrl.pathname)) {
+    return res;
+  }
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -19,14 +30,14 @@ export async function middleware(req: NextRequest) {
         },
         remove(name: string, options: any) {
           res.cookies.delete({ name, ...options });
-        }
-      }
+        },
+      },
     }
   );
 
   const { data: auth } = await supabase.auth.getUser();
 
-  // Protect /admin routes
+  // 🔐 Protect only /admin routes
   if (req.nextUrl.pathname.startsWith("/admin")) {
     if (!auth.user) {
       return NextResponse.redirect(new URL("/login", req.url));
@@ -37,5 +48,7 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!_next|api).*)",
+  ],
 };
