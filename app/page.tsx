@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import ClientPage from "./client-page"
 
 export const metadata: Metadata = {
-  title: "Tech Gears Finds4You - Budget-Friendly Gadgets & Honest Reviews",
+  title: "Budget-Friendly Gadgets & Honest Reviews",
   description:
     "Discover the best budget-friendly gadgets, honest reviews, and smart tech recommendations. Your source for affordable tech deals on Amazon.",
   keywords: [
