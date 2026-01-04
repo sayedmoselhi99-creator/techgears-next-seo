@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import ClientPage from "./client-page"
 
 export const metadata: Metadata = {
-  title: "Budget-Friendly Gadgets & Honest Reviews",
+  /*title: "Budget-Friendly Gadgets & Honest Reviews",*/
   description:
     "Discover the best budget-friendly gadgets, honest reviews, and smart tech recommendations. Your source for affordable tech deals on Amazon.",
   keywords: [
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     "Amazon gadgets",
   ],
    // ✅ CANONICAL (VERY IMPORTANT)
-  alternates: {
+  /*alternates: {
     canonical:"https://techgearsfinds4you.vercel.app",
-  },
+  },*/
   openGraph: {
     type: "website",
     locale: "en_US",
